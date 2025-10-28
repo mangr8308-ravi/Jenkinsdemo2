@@ -1,8 +1,7 @@
 pipeline {
     agent any
     environment {
-        PYTHON = 'stage('Extract Data') {
-            bat "C:\\Users\\RAVI\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"'
+        PYTHON = 'C:\\Users\\RAVI\\AppData\\Local\\Programs\\Python\\Python313\\python.exe'
     }
     stages {
         stage('Checkout Code') {
@@ -18,13 +17,13 @@ pipeline {
     }
     post {
         success {
-            echo "success..."
+            echo "success...."
         }
         failure {
-            echo "failure..."
+            echo "failure...."
         }
         always {
-            echo "Always..."
+            echo "Always...."
         }
     }
 }
