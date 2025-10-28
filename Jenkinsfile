@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+    environment {
+        PYTHON = 'stage('Extract Data') {
+            bat "C:\\Users\\RAVI\\AppData\\Local\\Programs\\Python\\Python313\\python.exe"'
+    }
+    stages {
+        stage('Checkout Code') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('Extract Data') {
+            steps {
+                bat "${env.PYTHON} extract.py"
+            }
+        }
+    }
+    post {
+        success {
+            echo "success..."
+        }
+        failure {
+            echo "failure..."
+        }
+        always {
+            echo "Always..."
+        }
+    }
+}
